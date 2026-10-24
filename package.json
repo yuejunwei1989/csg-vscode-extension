@@ -1,0 +1,44 @@
+{
+  "name": "coverity-semantic-graph",
+  "displayName": "Coverity Semantic Graph",
+  "description": "编译器级 C/C++ 语义能力：基于 Coverity 真实编译捕获的定义跳转、调用层级、Coverity 缺陷诊断。适用于 GHS/IAR 等嵌入式工具链。",
+  "version": "0.1.0",
+  "publisher": "csg",
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Programming Languages"],
+  "activationEvents": ["onLanguage:c", "onLanguage:cpp"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Coverity Semantic Graph",
+      "properties": {
+        "csg.dbPath": {
+          "type": "string",
+          "default": "${workspaceFolder}/graph.db",
+          "description": "CSG 图库路径（csg-index 产出）"
+        },
+        "csg.pythonPath": {
+          "type": "string",
+          "default": "python3",
+          "description": "Python 解释器（运行 csg-ls）"
+        }
+      }
+    },
+    "commands": [
+      { "command": "csg.selectDb", "title": "CSG: 选择图库文件" },
+      { "command": "csg.restart", "title": "CSG: 重启语言服务器" }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "package": "npx vsce package"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.3.0"
+  }
+}
