@@ -1,12 +1,19 @@
 {
   "name": "coverity-semantic-graph",
   "displayName": "Coverity Semantic Graph",
-  "description": "编译器级 C/C++ 语义能力：基于 Coverity 真实编译捕获的定义跳转、调用层级、Coverity 缺陷诊断。适用于 GHS/IAR 等嵌入式工具链。",
-  "version": "0.1.0",
+  "description": "编译器级（补全/大纲/全局符号/签名帮助/跳转/调用层级/缺陷诊断，目标取代内置 C/C++ 插件） C/C++ 语义能力：基于 Coverity 真实编译捕获的定义跳转、调用层级、Coverity 缺陷诊断。适用于 GHS/IAR 等嵌入式工具链。",
+  "version": "0.2.0",
   "publisher": "csg",
-  "engines": { "vscode": "^1.80.0" },
-  "categories": ["Programming Languages"],
-  "activationEvents": ["onLanguage:c", "onLanguage:cpp"],
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onLanguage:c",
+    "onLanguage:cpp"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "configuration": {
@@ -25,8 +32,14 @@
       }
     },
     "commands": [
-      { "command": "csg.selectDb", "title": "CSG: 选择图库文件" },
-      { "command": "csg.restart", "title": "CSG: 重启语言服务器" }
+      {
+        "command": "csg.selectDb",
+        "title": "CSG: 选择图库文件"
+      },
+      {
+        "command": "csg.restart",
+        "title": "CSG: 重启语言服务器"
+      }
     ]
   },
   "scripts": {
